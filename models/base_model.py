@@ -10,13 +10,19 @@ class BaseModel(object):
 
     """ class Comments """
 
-    def __init__(self, my_number=0, name="", updated_at=None,
-                 id="", created_at=None):
+    def __init__(self, *args, **kwargs):
         """ init Comments """
-        self.id = str(uuid.uuid4())
-        date_now = datetime.now()
-        self.created_at = date_now
-        self.updated_at = date_now
+        if kwargs:
+            self.id = kwargs["id"]
+            self.created_at = datetime.strptime(kwargs["created_at"],
+                                                '%Y-%m-%dT%H:%M:%S.%f')
+            self.updated_at = datetime.strptime(kwargs["updated_at"],
+                                                '%Y-%m-%dT%H:%M:%S.%f')
+        else:
+            self.id = str(uuid.uuid4())
+            date_now = datetime.now()
+            self.created_at = date_now
+            self.updated_at = date_now
 
     def __str__(self):
         """ str Comments """
