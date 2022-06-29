@@ -1,6 +1,9 @@
 #!/usr/bin/python3
 
-""" file Comments """
+"""
+BaseModel takes care of the initialization, serialization
+and desarialization  of instances
+"""
 
 import uuid
 from datetime import datetime
@@ -8,10 +11,13 @@ from datetime import datetime
 
 class BaseModel(object):
 
-    """ class Comments """
+    """
+    BaseModel defines all common attributes/
+    methods for others classes
+    """
 
     def __init__(self, *args, **kwargs):
-        """ init Comments """
+        """ defines public attributes """
         if kwargs:
             self.id = kwargs["id"]
             self.created_at = datetime.strptime(kwargs["created_at"],
@@ -25,14 +31,14 @@ class BaseModel(object):
             self.updated_at = date_now
 
     def __str__(self):
-        """ str Comments """
+        """ returns [<class name>] (<self.id>) <self.__dict__> """
         name = "[" + str(type(self).__name__) + "]"
         nid = "(" + str(self.id) + ")"
         dic = str(self.__dict__)
         return name + " " + nid + " " + dic
 
     def to_dict(self):
-        """ to_dict Comments """
+        """ returns a dictionary containing all keys/values of __dict__ """
         dic = self.__dict__.copy()
         dic["__class__"] = str(type(self).__name__)
         dic["updated_at"] = self.updated_at.isoformat()
@@ -40,6 +46,7 @@ class BaseModel(object):
         return dic
 
     def save(self):
-        """ save Comments """
+        """ updates the public instance attribute updated_at
+        with the current datetime """
         date_now = datetime.now()
         self.updated_at = date_now
