@@ -6,6 +6,7 @@ and desarialization  of instances
 """
 
 import uuid
+import models
 from datetime import datetime
 
 
@@ -20,10 +21,16 @@ class BaseModel(object):
         """ defines public attributes """
         if kwargs:
             self.id = kwargs["id"]
-            self.created_at = datetime.strptime(kwargs["created_at"],
-                                                '%Y-%m-%dT%H:%M:%S.%f')
-            self.updated_at = datetime.strptime(kwargs["updated_at"],
-                                                '%Y-%m-%dT%H:%M:%S.%f')
+            if "name" in kwargs:
+                self.name = kwargs["name"]
+            if "my_number" in kwargs:
+                self.my_number = kwargs["my_number"]
+            if "created_at" in kwargs:
+                self.created_at = datetime.strptime(kwargs["created_at"],
+                                                    '%Y-%m-%dT%H:%M:%S.%f')
+            if "updated_at" in kwargs:
+                self.updated_at = datetime.strptime(kwargs["updated_at"],
+                                                    '%Y-%m-%dT%H:%M:%S.%f')
         else:
             self.id = str(uuid.uuid4())
             date_now = datetime.now()
@@ -50,3 +57,5 @@ class BaseModel(object):
         with the current datetime """
         date_now = datetime.now()
         self.updated_at = date_now
+        models.storage.new(self)
+        models.storage.save()
