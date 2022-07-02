@@ -20,18 +20,11 @@ class BaseModel(object):
     def __init__(self, *args, **kwargs):
         """ defines public attributes """
         if kwargs:
-            if "id" in kwargs:
-                self.id = kwargs["id"]
-            if "name" in kwargs:
-                self.name = kwargs["name"]
-            if "my_number" in kwargs:
-                self.my_number = kwargs["my_number"]
-            if "created_at" in kwargs:
-                self.created_at = datetime.strptime(kwargs["created_at"],
-                                                    '%Y-%m-%dT%H:%M:%S.%f')
-            if "updated_at" in kwargs:
-                self.updated_at = datetime.strptime(kwargs["updated_at"],
-                                                    '%Y-%m-%dT%H:%M:%S.%f')
+            for key, value in kwargs.items():
+                if key == "created_at" or key == "updated_at":
+                    value = datetime.strptime(value, '%Y-%m-%dT%H:%M:%S.%f')
+                if key != "__class__":
+                    setattr(self, key, value)
         else:
             self.id = str(uuid.uuid4())
             date_now = datetime.now()
