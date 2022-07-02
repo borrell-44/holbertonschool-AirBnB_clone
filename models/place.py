@@ -2,7 +2,7 @@
 
 """ class Place file """
 
-from base_model import BaseModel
+from models.base_model import BaseModel
 
 
 class Place(BaseModel):
