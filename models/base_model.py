@@ -20,7 +20,8 @@ class BaseModel(object):
     def __init__(self, *args, **kwargs):
         """ defines public attributes """
         if kwargs:
-            self.id = kwargs["id"]
+            if "id" in kwargs:
+                self.id = kwargs["id"]
             if "name" in kwargs:
                 self.name = kwargs["name"]
             if "my_number" in kwargs:
