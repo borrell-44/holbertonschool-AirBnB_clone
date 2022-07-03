@@ -23,16 +23,19 @@ You can use it by using any of these commands:
 ## Example
 
 (hbnb) create User 
+
 7ad92afc-c549-4b15-b97b-91071ffa3866 
 
 (hbnb) update User 7ad92afc-c549-4b15-b97b-91071ffa3866 first_name "Juan" 
 
 (hbnb) show User 7ad92afc-c549-4b15-b97b-91071ffa3866 
+
 [User] (7ad92afc-c549-4b15-b97b-91071ffa3866) {'id': '7ad92afc-c549-4b15-b97b-91071ffa3866', 'created_at': datetime.datetime(2022, 7, 3, 20, 28, 21, 944913), 'updated_at': datetime.datetime(2022, 7, 3, 20, 29, 4, 862400), 'first_name': 'Juan'} 
 
 (hbnb) destroy User 7ad92afc-c549-4b15-b97b-91071ffa3866 
 
 (hbnb) show User 7ad92afc-c549-4b15-b97b-91071ffa3866 
+
 ** no instance found ** 
 
 (hbnb) 
