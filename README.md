@@ -4,11 +4,11 @@ This project is about creating a console for a future web application project. T
 
 ## Description
 
-You can start the project by first executing the console file:
+### You can start the project by first executing the console file:
 
 vagrant@ubuntu-focal:~/holbertonschool-AirBnB_clone$ ./console.py
 
-You can use it by using any of these commands:
+### You can use it by using any of these commands:
 
 * create: Creates a new instance of BaseModel, saves it (to the JSON file) and prints the id.
 
