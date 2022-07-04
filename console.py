@@ -43,7 +43,7 @@ class HBNBCommand(cmd.Cmd):
                 obj.save()
                 print(obj.id)
             except (NameError, SyntaxError):
-                print("** class doesn't exists **")
+                print("** class doesn't exist **")
 
     def do_show(self, args):
         """ prints a string representation of an instace """
@@ -122,7 +122,7 @@ class HBNBCommand(cmd.Cmd):
             return
         arg = list(args.split(" "))
         if len(arg) == 1:
-            print("** instace id missing **")
+            print("** instance id missing **")
             return
         if len(arg) == 2:
             print("** attribute name missing **")
