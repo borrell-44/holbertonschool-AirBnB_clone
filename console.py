@@ -64,7 +64,7 @@ class HBNBCommand(cmd.Cmd):
                 if con is False:
                     print("** no instance found **")
             except (NameError, SyntaxError):
-                print("** class doesn't exists **")
+                print("** class doesn't exist **")
             except IndexError:
                 print("** instance id missing **")
 
