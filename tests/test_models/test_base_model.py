@@ -9,11 +9,13 @@ import unittest
 class TestBaseModel(unittest.TestCase):
     """ Base_model tests """
 
-    def test_base_save(self):
+    def test_save(self):
         """ testing the save function """
         obj = BaseModel()
-        obj.save()
-        self.assertEqual(exists("file.json"), True)
+        self.assertEqual((obj.__class__).__name__, "BaseModel")
+
+    def test_str(self):
+        """ testing the str return value"""
 
     if __name__ == "__main__":
         unittest.main()
