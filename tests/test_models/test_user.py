@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-""" Unit Tests for the BaseModel class  """
+""" Unit Tests for the User class  """
 
 from models.user import User
 import unittest
