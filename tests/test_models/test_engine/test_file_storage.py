@@ -9,10 +9,15 @@ import unittest
 class TestFileStorage(unittest.TestCase):
     """ File Storage tests """
 
-    def test_all_func(self):
+    def test_class_name(self):
         """ test if the all func returns the objects private var """
         obj = FileStorage()
         self.assertEqual((obj.__class__).__name__, "FileStorage")
+
+    def test_all(self):
+        """ test the all function """
+        obj = FileStorage()
+        self.assertEqual(type(obj.all()), dict)
 
     if __name__ == "__main__":
         unittest.main()
