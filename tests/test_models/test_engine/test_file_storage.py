@@ -12,7 +12,7 @@ class TestFileStorage(unittest.TestCase):
     def test_all_func(self):
         """ test if the all func returns the objects private var """
         obj = FileStorage()
-        self.assertEqual(obj.all(), {})
+        self.assertEqual((obj.__class__).__name__, "FileStorage")
 
     if __name__ == "__main__":
         unittest.main()
