@@ -19,6 +19,21 @@ class TestBaseModel(unittest.TestCase):
         obj = BaseModel()
         self.assertEqual(obj.save(), None)
 
+    def test_to_dict(self):
+        """ test the return value of to_dict """
+        obj = BaseModel()
+        self.assertEqual(type(obj.to_dict()), dict)
+
+    def test_id(self):
+        """ test id existence and type """
+        obj = BaseModel()
+        self.assertEqual(type(obj.id), str)
+
+    def test_str(self):
+        """ test __str__ return value type """
+        obj = BaseModel()
+        self.assertEqual(type(obj.__str__()), str)
+
 
     if __name__ == "__main__":
         unittest.main()
