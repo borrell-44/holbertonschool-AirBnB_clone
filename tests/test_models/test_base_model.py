@@ -9,13 +9,16 @@ import unittest
 class TestBaseModel(unittest.TestCase):
     """ Base_model tests """
 
-    def test_save(self):
+    def test_class_name(self):
         """ testing the save function """
         obj = BaseModel()
         self.assertEqual((obj.__class__).__name__, "BaseModel")
 
-    def test_str(self):
-        """ testing the str return value"""
+    def test_save(self):
+        """ testing if the save functions exists """
+        obj = BaseModel()
+        self.assertEqual(obj.save(), None)
+
 
     if __name__ == "__main__":
         unittest.main()
