@@ -32,7 +32,11 @@ class TestBaseModel(unittest.TestCase):
     def test_str(self):
         """ test __str__ return value type """
         obj = BaseModel()
-        self.assertEqual(type(obj.__str__()), str)
+        name = "[" + str(type(obj).__name__) + "]"
+        nid = "(" + str(obj.id) + ")"
+        dic = str(obj.__dict__)
+        value = name + " " + nid + " " + dic
+        self.assertEqual(obj.__str__(), value)
 
 
     if __name__ == "__main__":
