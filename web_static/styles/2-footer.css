@@ -5,3 +5,7 @@ footer {
   bottom: 0;
   position: fixed;
 }
+
+footer p {
+  text-align: center;
+}
